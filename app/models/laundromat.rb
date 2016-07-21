@@ -1,4 +1,5 @@
 class Laundromat < ActiveRecord::Base
+<<<<<<< HEAD
   validates :name, presence: true
   validates :street, presence: true
   validates :city, presence: true
@@ -7,4 +8,7 @@ class Laundromat < ActiveRecord::Base
   has_many :washers
   has_many :dryers
   belongs_to :user
+=======
+
+>>>>>>> master
 end
