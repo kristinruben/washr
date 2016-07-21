@@ -55,7 +55,7 @@
 
 		#banner:before,
 		.wrapper.style4:before {
-			background: #000000;
+			background: #1D242A;
 			content: '';
 			height: 100%;
 			left: 0;
@@ -109,7 +109,7 @@
 	}
 
 		#main > header:before {
-			background: #000000;
+			background: #1D242A;
 			content: '';
 			height: 100%;
 			left: 0;
