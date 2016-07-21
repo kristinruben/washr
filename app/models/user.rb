@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: true
   validates :encrypted_password, presence: true
 
-<<<<<<< HEAD
   has_many :laundromats
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -20,7 +19,7 @@ class User < ActiveRecord::Base
      where(conditions.to_hash).first
    end
  end
-=======
+
   has_many :reviews
   has_many :venues
 
@@ -39,5 +38,4 @@ class User < ActiveRecord::Base
       where(conditions.to_hash).first
     end
   end
->>>>>>> master
 end

@@ -1,10 +1,7 @@
 require 'rails_helper'
 
 describe Dryer do
-<<<<<<< HEAD
-=======
 
->>>>>>> master
   it { should have_valid(:laundromat_id).when(2) }
   it { should_not have_valid(:laundromat_id).when(nil, '') }
 
