@@ -9,54 +9,34 @@
         1,
         null,
         1,
-<<<<<<< HEAD
-=======
-        1,
-        null,
->>>>>>> master
         null,
         null,
         1,
         null,
         null,
-<<<<<<< HEAD
-=======
-        null,
->>>>>>> master
         1,
         0,
         0,
         null,
-<<<<<<< HEAD
-=======
         0,
         0,
         0,
         null,
         null,
-        null
-      ],
-      "/Users/kristinruben/Dropbox/washr/app/helpers/application_helper.rb": [
+        null,
         1,
-        null
-      ],
-      "/Users/kristinruben/Dropbox/washr/app/models/dryer.rb": [
         1,
         null,
-        null
-      ],
-      "/Users/kristinruben/Dropbox/washr/app/models/laundromat.rb": [
+        null,
+        null,
         1,
         null,
-        null
-      ],
-      "/Users/kristinruben/Dropbox/washr/app/models/washer.rb": [
-        1,
         null,
-        null
-      ],
-      "/Users/kristinruben/Dropbox/washr/app/assets/images/assets.rb": [
->>>>>>> master
+        null,
+        1,
+        0,
+        0,
+        null,
         0,
         0,
         0,
@@ -237,7 +217,6 @@
         0,
         0,
         0,
-<<<<<<< HEAD
         0,
         0,
         0,
@@ -247,12 +226,6 @@
         0
       ]
     },
-    "timestamp": 1469066063
-=======
-        0
-      ]
-    },
-    "timestamp": 1468036288
->>>>>>> master
+    "timestamp": 1469125726
   }
 }
