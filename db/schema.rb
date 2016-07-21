@@ -11,22 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709005023) do
+ActiveRecord::Schema.define(version: 20160721003115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "laundromats", force: :cascade do |t|
-    t.string   "name",       null: false
-    t.string   "address",    null: false
-    t.string   "city",       null: false
-    t.string   "state",      null: false
-    t.string   "zip_code",   null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "name",              null: false
+    t.string   "address",           null: false
+    t.string   "city",              null: false
+    t.string   "state",             null: false
+    t.string   "zip_code",          null: false
+    t.integer  "washers_available", null: false
+    t.integer  "dryers_available",  null: false
+    t.string   "created_by",        null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "username",               default: "", null: false
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -43,8 +47,5 @@ ActiveRecord::Schema.define(version: 20160709005023) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
-
-  create_table "washers", force: :cascade do |t|
-  end
 
 end
