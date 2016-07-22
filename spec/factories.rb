@@ -1,7 +1,6 @@
 FactoryGirl.define do
 
   factory :user do
-    sequence(:username) { |n| "dparton#{n}" }
     sequence(:email) { |n| "dparton#{n}@gmail.com" }
     password 'password'
   end
@@ -11,9 +10,6 @@ FactoryGirl.define do
     sequence (:address) { |n| "Street #{n}" }
     city 'Boston'
     state 'MA'
-    website 'http://www.laundromat.com'
-    category 'Music'
-    description 'The greatest laundromat of all time'
-    avg_rating '8'
+    zip_code '02138'
   end
 end

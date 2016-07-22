@@ -59,7 +59,7 @@ feature 'user creates laundromat' do
       click_button 'Add Laundromat'
 
       expect(page).to have_content("Name can't be blank")
-      expect(page).to have_content("Street can't be blank")
+      expect(page).to have_content("Address can't be blank")
 
       expect(page).not_to have_content('Laundromat successfully added!')
 
@@ -74,7 +74,7 @@ feature 'user creates laundromat' do
 
       expect(page).not_to have_content('Laundromat successfully added!')
       expect(page).to have_content("Name can't be blank")
-      expect(page).to have_content("Street can't be blank")
+      expect(page).to have_content("Address can't be blank")
       expect(page).to have_content("City can't be blank")
       expect(page).to have_content("State can't be blank")
       expect(page).to have_content('There were problems saving your laundromat')

@@ -17,7 +17,7 @@ RSpec.configure do |config|
     user = FactoryGirl.create(:user)
     visit laundromats_path
     click_link 'Sign In'
-    fill_in 'Username', with: user[:username]
+    fill_in 'Email', with: user[:email]
     fill_in 'Password', with: 'password'
     click_button 'Log in'
   end
