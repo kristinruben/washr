@@ -28,7 +28,7 @@ feature 'user creates laundromat' do
       expect(page).to have_selector('form')
 
       expect(page).to have_content('Laundromat Name')
-      expect(page).to have_content('Street')
+      expect(page).to have_content('Address')
       expect(page).to have_content('City')
       expect(page).to have_content('State')
       expect(page).to have_content('Zip Code')
@@ -39,7 +39,7 @@ feature 'user creates laundromat' do
     scenario 'inputs valid name, location' do
       click_button 'Add New Laundromat'
       fill_in 'Laundromat Name', with: laundromat[:name]
-      fill_in 'Street', with: laundromat[:address]
+      fill_in 'Address', with: laundromat[:address]
       fill_in 'City', with: laundromat[:city]
       select 'Massachusetts', from: 'State'
       click_button 'Add Laundromat'
@@ -52,7 +52,7 @@ feature 'user creates laundromat' do
     scenario 'does not complete required fields' do
       click_button 'Add New Laundromat'
       fill_in 'Name', with: ''
-      fill_in 'Street', with: ''
+      fill_in 'Address', with: ''
       fill_in 'City', with: laundromat[:city]
       select 'Massachusetts', from: 'State'
       fill_in 'Zip Code', with: ''
