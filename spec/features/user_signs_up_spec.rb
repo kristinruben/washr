@@ -4,7 +4,7 @@ feature 'user creates account' do
   let(:user) { FactoryGirl.attributes_for(:user) }
 
   scenario 'user sees sign up form' do
-    visit venues_path
+    visit laundromats_path
     click_link 'Sign Up'
 
     expect(current_path).to eq(new_user_registration_path)
@@ -19,7 +19,7 @@ feature 'user creates account' do
   end
 
   scenario 'user inputs all required fields' do
-    visit venues_path
+    visit laundromats_path
     click_link 'Sign Up'
     fill_in 'Username', with: user[:username]
     fill_in 'Email', with: user[:email]
@@ -31,7 +31,7 @@ feature 'user creates account' do
   end
 
   scenario 'user leaves out required fields' do
-    visit venues_path
+    visit laundromats_path
     click_link 'Sign Up'
     fill_in 'Username', with: ''
     fill_in 'Email', with: ''

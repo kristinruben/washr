@@ -20,14 +20,13 @@ class LaundromatsController < ApplicationController
 
   def create
     @laundromat = Laundromat.new(laundromat_params)
-    @laundromat.user = current_user
     if @laundromat.save
       flash[:notice] = "Laundromat successfully added!"
       redirect_to @laundromat
     else
-      flash[:notice] = "There were problems saving your venue."
+      flash[:notice] = "There were problems saving your laundromat."
       flash[:errors] = @laundromat.errors.full_messages.join(", ")
-      render :new
+      render new_laundromat_path(:anchor => "main")
     end
   end
 
@@ -66,7 +65,7 @@ class LaundromatsController < ApplicationController
   private
 
   def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code)
+    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code, :washers_available, :dryers_available)
   end
 
 end

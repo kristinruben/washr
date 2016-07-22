@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'user creates account' do
   let(:user) { FactoryGirl.create(:user) }
-  let!(:venue) { FactoryGirl.create(:venue) }
+  let!(:laundromat) { FactoryGirl.create(:laundromat) }
 
   scenario 'user signs out' do
-    visit venues_path
+    visit laundromats_path
     click_link 'Sign In'
     fill_in 'Login', with: user[:email]
     fill_in 'Password', with: 'password'

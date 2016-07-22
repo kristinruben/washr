@@ -4,8 +4,8 @@ describe Laundromat do
   it { should have_valid(:name).when('a name') }
   it { should_not have_valid(:name).when(nil, '') }
 
-  it { should have_valid(:street).when('123 Street') }
-  it { should_not have_valid(:street).when(nil, '') }
+  it { should have_valid(:address).when('123 Street') }
+  it { should_not have_valid(:address).when(nil, '') }
 
   it { should have_valid(:city).when('Boston') }
   it { should_not have_valid(:city).when(nil, '') }

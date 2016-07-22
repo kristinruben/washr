@@ -3,17 +3,17 @@ require 'rails_helper'
 feature 'user creates laundromat' do
   let(:laundromat) { FactoryGirl.attributes_for(:laundromat) }
 
-  context 'inauthenticated user' do
-    scenario 'unauthorized user visits new laundromat form' do
-      visit laundromats_path
-
-      click_link 'Add New Laundromat'
-
-      expect(page).to have_content('You must be signed in to add a new laundromat')
-
-      expect(page).not_to have_selector('form')
-    end
-  end
+  # context 'inauthenticated user' do
+  #   scenario 'unauthorized user visits new laundromat form' do
+  #     visit laundromats_path
+  #
+  #     click_button 'Add New Laundromat'
+  #
+  #     expect(page).to have_content('You must be signed in to add a new laundromat')
+  #
+  #     expect(page).not_to have_selector('form')
+  #   end
+  # end
 
   context 'authenticated user' do
     before do
@@ -21,9 +21,9 @@ feature 'user creates laundromat' do
     end
 
     scenario 'visits new laundromat form' do
-      click_link 'Add New Laundromat'
+      click_button 'Add New Laundromat'
 
-      expect(current_path).to eq(new_laundromat_path)
+      expect(current_path).to eq(new_laundromat_path(:anchor => "main"))
 
       expect(page).to have_selector('form')
 
@@ -31,12 +31,15 @@ feature 'user creates laundromat' do
       expect(page).to have_content('Street')
       expect(page).to have_content('City')
       expect(page).to have_content('State')
+      expect(page).to have_content('Zip Code')
+      expect(page).to have_content('Washers Available')
+      expect(page).to have_content('Dryers Available')
     end
 
-    scenario 'inputs valid name, location, and category' do
-      click_link 'Add New Laundromat'
+    scenario 'inputs valid name, location' do
+      click_button 'Add New Laundromat'
       fill_in 'Laundromat Name', with: laundromat[:name]
-      fill_in 'Street', with: laundromat[:street]
+      fill_in 'Street', with: laundromat[:address]
       fill_in 'City', with: laundromat[:city]
       select 'Massachusetts', from: 'State'
       click_button 'Add Laundromat'
@@ -47,11 +50,12 @@ feature 'user creates laundromat' do
     end
 
     scenario 'does not complete required fields' do
-      click_link 'Add New Laundromat'
+      click_button 'Add New Laundromat'
       fill_in 'Name', with: ''
       fill_in 'Street', with: ''
       fill_in 'City', with: laundromat[:city]
       select 'Massachusetts', from: 'State'
+      fill_in 'Zip Code', with: ''
       click_button 'Add Laundromat'
 
       expect(page).to have_content("Name can't be blank")
@@ -65,7 +69,7 @@ feature 'user creates laundromat' do
     end
 
     scenario 'submits a blank form' do
-      click_link 'Add New Laundromat'
+      click_button 'Add New Laundromat'
       click_button 'Add Laundromat'
 
       expect(page).not_to have_content('Laundromat successfully added!')
