@@ -3,10 +3,10 @@ require 'rails_helper'
 feature 'user edits account information' do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:another_user) { FactoryGirl.create(:user) }
-  let!(:venue) { FactoryGirl.create(:venue) }
+  let!(:laundromat) { FactoryGirl.create(:laundromat) }
 
   before do
-    visit venues_path
+    visit laundromats_path
     click_link 'Sign In'
     fill_in 'Login', with: user[:email]
     fill_in 'Password', with: 'password'

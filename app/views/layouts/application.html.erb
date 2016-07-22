@@ -10,94 +10,60 @@
 <body class="landing">
 
   <!-- Page Wrapper -->
-    <div id="page-wrapper">
+  <div id="page-wrapper">
 
-      <!-- Header -->
-        <header id="header" class="alt">
-          <h1><a href="index.html">Washr</a></h1>
-          <nav id="nav">
-            <ul>
-              <li class="special">
-                <a href="#menu" class="menuToggle"><span>Menu</span></a>
-                <div id="menu">
-                  <ul>
-                    <li><a href="#">Find A Laundromat</a></li>
-                    <li><%= link_to "Home", root_path %></li>
-                    <% if user_signed_in? %>
-                    <a href="#" class="opener">Welcome, <%= current_user.username %></a>
-                    <ul>
-                      <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-                      <li><%= link_to "Edit Account", edit_user_registration_path %></li>
-                    <% else %>
-                      <li><%= link_to "Sign Up", new_user_registration_path %></li>
-                      <li><%= link_to "Sign In", new_user_session_path, class: 'sign-in' %></li>
-                    </ul>
-                    <% end %>
-                  </ul>
-                </div>
-              </li>
-            </ul>
-          </nav>
-        </header>
+    <!-- Header -->
+    <header id="header" class="alt">
+      <h1><a href="index.html">Washr</a></h1>
+      <nav id="nav">
+        <ul>
+          <li class="special">
+            <a href="#menu" class="menuToggle"><span>Menu</span></a>
+            <div id="menu">
+              <ul>
+                <li><%= link_to "Home", root_path %></li>
+                <% if user_signed_in? %>
+                  <li><%= link_to "Add New Laundromat", new_laundromat_path(:anchor => "main") %></li>
+                  <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to "Edit Account", edit_user_registration_path %></li>
+                <% else %>
+                  <li><%= link_to "Sign Up", new_user_registration_path %></li>
+                  <li><%= link_to "Sign In", new_user_session_path, class: 'sign-in' %></li>
+                <% end %>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
 
-      <!-- Banner -->
-        <section id="banner">
-          <div class="inner">
-            <h2>Washr</h2>
-            <p>Never wait for the<br />
-            washing machine again.</p><br />
-          </div>
-          <a href="#one" class="more scrolly">Learn More</a>
-        </section>
+    <!-- Banner -->
+    <section id="banner">
+      <div class="inner">
+        <h2>Washr</h2>
+        <p>Never wait for the<br />
+          washing machine again.</p><br />
+        </div>
+        <a href="#one" class="more scrolly">Learn More</a>
+      </section>
 
       <!-- One -->
-        <section id="one" class="wrapper style1 special">
-          <div class="inner">
-            <header class="major">
-              <h2>Arcu aliquet vel lobortis ata nisl<br />
-              eget augue amet aliquet nisl cep donec</h2>
-              <p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
-              fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
-            </header>
-            <ul class="icons major">
-              <li><span class="icon fa-diamond major style1"><span class="label">Lorem</span></span></li>
-              <li><span class="icon fa-heart-o major style2"><span class="label">Ipsum</span></span></li>
-              <li><span class="icon fa-code major style3"><span class="label">Dolor</span></span></li>
-            </ul>
-          </div>
-        </section>
-
-      <!-- Two -->
-        <section id="two" class="wrapper alt style2">
-          <section class="spotlight">
-            <div class="image"><img src="images/pic01.jpg" alt="" /></div><div class="content">
-              <h2>Magna primis lobortis<br />
-              sed ullamcorper</h2>
-              <p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-            </div>
-          </section>
-          <section class="spotlight">
-            <div class="image"><img src="images/pic02.jpg" alt="" /></div><div class="content">
-              <h2>Tortor dolore feugiat<br />
-              elementum magna</h2>
-              <p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-            </div>
-          </section>
-          <section class="spotlight">
-            <div class="image"><img src="images/pic03.jpg" alt="" /></div><div class="content">
-              <h2>Augue eleifend aliquet<br />
-              sed condimentum</h2>
-              <p>Aliquam ut ex ut augue consectetur interdum. Donec hendrerit imperdiet. Mauris eleifend fringilla nullam aenean mi ligula.</p>
-            </div>
-          </section>
-        </section>
+      <section id="one" class="wrapper style1 special">
+        <div class="inner">
+          <header class="major">
+            <h2>Save time, check laundromat traffic before going</h2>
+            <br /><br /><br /><br />
+            <span class="icon fa-bar-chart"></span>
+          </header>
+        </div>
+      </section>
 
       <!-- Three -->
-        <section id="three" class="wrapper style3 special">
-          <div class="inner">
-            <header class="major">
-              <h2>Accumsan mus tortor nunc aliquet</h2>
-              <p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
+      <section id="three" class="wrapper style3 special">
+        <div class="inner">
+          <header class="major">
+            <h2>About Washr</h2>
+            <p>Aliquam ut ex ut augue consectetur interdum. Donec amet imperdiet eleifend<br />
               fringilla tincidunt. Nullam dui leo Aenean mi ligula, rhoncus ullamcorper.</p>
             </header>
             <ul class="features">
@@ -128,56 +94,40 @@
             </ul>
           </div>
         </section>
-
-      <!-- CTA -->
-        <section id="cta" class="wrapper style4">
-          <div class="inner">
-            <header>
-              <h2>Arcue ut vel commodo</h2>
-              <p>Aliquam ut ex ut augue consectetur interdum endrerit imperdiet amet eleifend fringilla.</p>
-            </header>
-            <ul class="actions vertical">
-              <li><a href="#" class="button fit special">Activate</a></li>
-              <li><a href="#" class="button fit">Learn More</a></li>
-            </ul>
-          </div>
-        </section>
-
-
-
-    </div>
+      </div>
 
       <!-- Header -->
-      <br /><br />
-      <div class="flash">
-    <% flash.each do |key, value| %>
-      <div class="alert alert-<%= key %>"><%= value  %></div>
-    <% end %>
-  </div>
-      <header>
       <br />
-        <div class="2u -5u">
 
-        </div>
-      </header>
       <div id="main">
+        <div class="submain">
+          <div class="flash">
+            <% flash.each do |key, value| %>
+            <div class="alert alert-<%= key %>">
+              <%= value %>
+            </div>
+            <% end %>
+          </div>
           <%= yield %>
+        </div>
       </div>
-      <!-- Footer -->
-        <footer id="footer">
-          <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-            <li><a href="#" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-          </ul>
-          <ul class="copyright">
-            <li>&copy; Washr</li>
-          </ul>
-        </footer>
-        <%= javascript_include_tag 'application' %>
-        <%= javascript_include_tag 'https://use.fontawesome.com/92d99cf3de.js' %>
-        <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAfjXa1ss9t4HUqrNEV_CqJFx-bglxrXpU&libraries=places&callback=initMap' %>
-      </body>
-      </html>
+    </div>
+  </div>
+    <!-- Footer -->
+    <footer id="footer">
+      <ul class="icons">
+        <li><a href="https://github.com/kristinruben" class="icon fa-github"><span class="label">Github</span></a></li>
+        <li><a href="https://www.instagram.com/kristin_knits/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="https://www.linkedin.com/in/kruben" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        <li><a href="https://angel.co/kristin-ruben" class="icon fa-angellist"><span class="label">Angellist</span></a></li>
+        <li><a href="http://kristinruben.com" class="icon fa-space-shuttle"><span class="label">Website</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>&copy; Washr</li>
+      </ul>
+    </footer>
+    <%= javascript_include_tag 'application' %>
+    <%= javascript_include_tag 'https://use.fontawesome.com/92d99cf3de.js' %>
+    <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAfjXa1ss9t4HUqrNEV_CqJFx-bglxrXpU&libraries=places&callback=initMap' %>
+  </body>
+  </html>

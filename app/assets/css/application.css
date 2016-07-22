@@ -79,3 +79,21 @@
  .icon {
    width: 3.5em;
  }
+
+#main {
+  padding: 10em;
+}
+
+.svg {
+  fill: #FFFFFF !important;
+  height: 10em;
+  margin-top: 2em;
+}
+
+.fa-bar-chart {
+  font-size: 10em;
+}
+
+.fa-plus {
+  font-size: 10em;
+}
