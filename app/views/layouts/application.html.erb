@@ -23,7 +23,6 @@
               <ul>
                 <li><%= link_to "Home", root_path %></li>
                 <% if user_signed_in? %>
-                  <li><%= link_to "Add New Laundromat", new_laundromat_path(:anchor => "main") %></li>
                   <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
                   <li><%= link_to "Edit Account", edit_user_registration_path %></li>
                 <% else %>
@@ -51,9 +50,9 @@
       <section id="one" class="wrapper style1 special">
         <div class="inner">
           <header class="major">
-            <h2>Save time, check laundromat traffic before going</h2>
-            <br /><br /><br /><br />
-            <span class="icon fa-bar-chart"></span>
+            <h2>Save time, check laundromat traffic beforehand</h2>
+            <br /><br /><br /><br /><br /><br />
+            <span class="icon fa-area-chart"></span>
           </header>
         </div>
       </section>

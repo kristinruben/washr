@@ -90,10 +90,15 @@
   margin-top: 2em;
 }
 
-.fa-bar-chart {
+.fa-area-chart {
   font-size: 10em;
 }
 
 .fa-plus {
   font-size: 10em;
+}
+
+.laundromats {
+  background-color: #1D242A;
+  padding: 2em;
 }

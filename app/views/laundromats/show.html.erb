@@ -1,15 +1,13 @@
-  <div class="row">
-    <div class="6u -1u">
-      <h3><%= @laundromat.name %></h3>
-      <h6><%= @laundromat.address %> <%= @laundromat.city %>, <%= @laundromat.state %></h6>
-      <p>Washers available: <%= @laundromat.washers_available %>
-        <br />Dryers available: <%= @laundromat.dryers_available %></p>
-      <% if user_signed_in? %>
-      <%= link_to "Edit", edit_laundromat_path(@laundromat) %>
-      <%= link_to "Delete", laundromat_path(@laundromat), method: :delete %>
-      <% end %>
-    </div>
-  </div>
-  <br /><br />
-
-  <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
+<div class="6u -1u">
+  <h3><%= @laundromat.name %></h3>
+  <h6><%= @laundromat.address %> <%= @laundromat.city %>, <%= @laundromat.state %></h6>
+  <p>Washers available: <%= @laundromat.washers_available %>
+    <br />Dryers available: <%= @laundromat.dryers_available %></p>
+  <% if user_signed_in? %>
+  <%= link_to "Edit", edit_laundromat_path(@laundromat) %>
+  <%= link_to "Delete", laundromat_path(@laundromat), method: :delete %>
+  <% end %>
+</div>
+<br /><br />
+<%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
+<%= link_to 'All Laundromats', laundromats_path(:anchor => "main"), class: "button", role: "button" %>
