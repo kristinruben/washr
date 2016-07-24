@@ -14,7 +14,7 @@ class LaundromatsController < ApplicationController
 
     unless user_signed_in?
       flash[:error] = "You must be signed in to add a new laundromat."
-      redirect_to laundromats_path
+      redirect_to laundromats_path(:anchor => "main")
     end
   end
 
@@ -26,7 +26,7 @@ class LaundromatsController < ApplicationController
     else
       flash[:notice] = "There were problems saving your laundromat."
       flash[:errors] = @laundromat.errors.full_messages.join(", ")
-      render new_laundromat_path(:anchor => "main")
+      redirect_to new_laundromat_path(:anchor => "main")
     end
   end
 
@@ -52,7 +52,7 @@ class LaundromatsController < ApplicationController
     Laundromat.destroy(params[:id])
     if !@laundromat
       flash[:notice] = "Laundromat deleted"
-      redirect_to laundromats_path
+      redirect_to laundromats_path(:anchor => "main")
     else
       render :show
     end
@@ -65,7 +65,7 @@ class LaundromatsController < ApplicationController
   private
 
   def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code, :washers_available, :dryers_available)
+    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code)
   end
 
 end

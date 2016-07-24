@@ -11,7 +11,6 @@ feature 'user creates account' do
 
     expect(page).to have_selector('form')
 
-    expect(page).to have_content('Username')
     expect(page).to have_content('Email')
     expect(page).to have_content('Password')
     expect(page).to have_content('Password confirmation')
@@ -21,7 +20,6 @@ feature 'user creates account' do
   scenario 'user inputs all required fields' do
     visit laundromats_path
     click_link 'Sign Up'
-    fill_in 'Username', with: user[:username]
     fill_in 'Email', with: user[:email]
     fill_in 'Password', with: user[:password]
     fill_in 'Password confirmation', with: user[:password]
@@ -33,13 +31,11 @@ feature 'user creates account' do
   scenario 'user leaves out required fields' do
     visit laundromats_path
     click_link 'Sign Up'
-    fill_in 'Username', with: ''
     fill_in 'Email', with: ''
     fill_in 'Password', with: ''
     fill_in 'Password confirmation', with: ''
     click_button 'Sign up'
 
-    expect(page).to have_content("Username can't be blank")
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
     expect(page).to have_content("Encrypted password can't be blank")

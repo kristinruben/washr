@@ -1,11 +1,11 @@
 <section id="content" class="wrapper">
   <div class="row">
-  <h3 class="title">Add New Washer Data</h3>
+  <h3 class="title">Add New Dryer Data</h3>
 </div>
 
 <div class="row">
   <%= render "form" %>
 </div>
 <%= link_to 'Back to Laundromat', laundromat_path(@laundromat), class: "button", role: "button" %>
-<%= link_to 'Add Dryer Data', new_laundromat_dryer_path(@laundromat), class: "button", role: "button" %>
+<%= link_to 'Add Washer Data', new_laundromat_washer_path(@laundromat), class: "button", role: "button" %>
 </section>

@@ -21,9 +21,9 @@ feature 'user creates laundromat' do
     end
 
     scenario 'visits new laundromat form' do
-      click_button 'Add New Laundromat'
+      click_link 'Add New Laundromat'
 
-      expect(current_path).to eq(new_laundromat_path(:anchor => "main"))
+      expect(current_path).to eq(new_laundromat_path)
 
       expect(page).to have_selector('form')
 
@@ -37,7 +37,7 @@ feature 'user creates laundromat' do
     end
 
     scenario 'inputs valid name, location' do
-      click_button 'Add New Laundromat'
+      click_link 'Add New Laundromat'
       fill_in 'Laundromat Name', with: laundromat[:name]
       fill_in 'Address', with: laundromat[:address]
       fill_in 'City', with: laundromat[:city]
@@ -50,7 +50,7 @@ feature 'user creates laundromat' do
     end
 
     scenario 'does not complete required fields' do
-      click_button 'Add New Laundromat'
+      click_link 'Add New Laundromat'
       fill_in 'Name', with: ''
       fill_in 'Address', with: ''
       fill_in 'City', with: laundromat[:city]
@@ -59,7 +59,7 @@ feature 'user creates laundromat' do
       click_button 'Add Laundromat'
 
       expect(page).to have_content("Name can't be blank")
-      expect(page).to have_content("Street can't be blank")
+      expect(page).to have_content("Address can't be blank")
 
       expect(page).not_to have_content('Laundromat successfully added!')
 
@@ -69,12 +69,12 @@ feature 'user creates laundromat' do
     end
 
     scenario 'submits a blank form' do
-      click_button 'Add New Laundromat'
-      click_button 'Add Laundromat'
+      click_link 'Add New Laundromat'
+      click_link 'Add Laundromat'
 
       expect(page).not_to have_content('Laundromat successfully added!')
       expect(page).to have_content("Name can't be blank")
-      expect(page).to have_content("Street can't be blank")
+      expect(page).to have_content("Address can't be blank")
       expect(page).to have_content("City can't be blank")
       expect(page).to have_content("State can't be blank")
       expect(page).to have_content('There were problems saving your laundromat')

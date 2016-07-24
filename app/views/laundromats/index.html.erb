@@ -1,10 +1,21 @@
 <!-- Content -->
-  <section id="content" class="wrapper">
-    <div>
-      <h1></h1><br /><br />
-      <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
+<section id="content" class="wrapper">
+  <h1>Laundromats</h1>
+  <br /><br />
+    <%= @laundromats.each do |laundromat| %>
+    <div class="laundromats 6u -1u">
+      <h3><%= laundromat.name %></h3>
+      <h5><%= laundromat.address %> <%= laundromat.city %>, <%= laundromat.state %></h5>
       <br />
-    </div>
+      <%= link_to "More", laundromat_path(laundromat) %>
+      <% if user_signed_in? %>
+        <%= link_to "Edit", edit_laundromat_path(laundromat) %>
+        <%= link_to "Delete", laundromat_path(laundromat), method: :delete %>
+      </div>
+      <% end %>
+      <br /><br />
+    <% end %>
+    <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
     <br />
-    <br />
-  </section>
+  <br />
+</section>
