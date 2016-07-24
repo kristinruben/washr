@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   root 'laundromats#index'
   resources :laundromats do
     resources :washers, only: [:new, :create, :edit, :update, :destroy]
-    resources :dryers, only: [:new, :create]
+    resources :dryers, only: [:new, :create, :edit, :update, :destroy]
   end
 end
