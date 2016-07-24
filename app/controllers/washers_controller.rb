@@ -5,11 +5,11 @@ class WashersController < ApplicationController
     @washer.laundromat = @laundromat
 
     if @washer.save
-      flash[:notice] = 'Washer successfully added!'
-      redirect_to laundromat_path(@laundromat)
+      flash[:notice] = 'Washer data successfully added!'
+      redirect_to laundromat_path(@laundromat) + "#main"
     else
       flash[:notice] = 'You must be signed in to add washer data'
-      redirect_to laundromat_path(@laundromat)
+      redirect_to laundromat_path(@laundromat) + "#main"
     end
   end
 
@@ -18,7 +18,7 @@ class WashersController < ApplicationController
     @washer = Washer.new
     unless user_signed_in?
       flash[:notice] = 'You must be signed in to add washer data'
-      redirect_to laundromat_path(@laundromat)
+      redirect_to laundromat_path(@laundromat) + "#main"
     end
   end
 
@@ -34,7 +34,7 @@ class WashersController < ApplicationController
     if @washer.update(washer_params)
       flash[:notice] = 'Washer successfully edited!'
     end
-    redirect_to laundromat_path(@laundromat)
+    redirect_to laundromat_path(@laundromat) + "#main"
   end
 
   def destroy
@@ -42,7 +42,7 @@ class WashersController < ApplicationController
     @laundromat = Laundromat.find(params[:laundromat_id])
     @washer.destroy
     flash[:notice] = 'Washer deleted!'
-    redirect_to laundromat_path(@laundromat)
+    redirect_to laundromat_path(@laundromat) + "#main"
   end
 
   private

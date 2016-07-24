@@ -2,20 +2,35 @@
 <section id="content" class="wrapper">
   <h1>Laundromats</h1>
   <br /><br />
-    <%= @laundromats.each do |laundromat| %>
-    <div class="laundromats 6u -1u">
+    <% @laundromats.each do |laundromat| %>
+      <div class="laundromats 6u -1u">
+        <div class="row">
+        <div class="1u -10u">
+          <% if user_signed_in? %>
+            <%= link_to "", edit_laundromat_path(laundromat), class: "edit icon fa-pencil" %>&nbsp;<%= link_to "", laundromat_path(laundromat), class: "delete icon fa-close", method: :delete %>
+          <% end %>
+          </div>
+        </div>
       <h3><%= laundromat.name %></h3>
       <h5><%= laundromat.address %> <%= laundromat.city %>, <%= laundromat.state %></h5>
+      <% if @washers %>
+        <p>Most recent number of washers available: <%= @washers.last.number_available %></p>
+      <% end %>
       <br />
-      <%= link_to "More", laundromat_path(laundromat) %>
+      <% if @dryers %>
+        <p>Most recent number of dryers available: <%= @dryers.last.number_available %></p>
+      <% end %>
+      <%= link_to "More", laundromat_path(laundromat) + "#main", class: "button" %>
+      <br />
       <% if user_signed_in? %>
-        <%= link_to "Edit", edit_laundromat_path(laundromat) %>
-        <%= link_to "Delete", laundromat_path(laundromat), method: :delete %>
+        <%= link_to "Edit", edit_laundromat_path(laundromat) + "#main" %>
       </div>
       <% end %>
       <br /><br />
     <% end %>
-    <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
+    <div class="8u -1u">
+    <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button special", role: "button" %>
+  </div>
     <br />
   <br />
 </section>

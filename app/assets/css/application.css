@@ -24,6 +24,10 @@
    background-repeat: no-repeat;
  }
 
+ p {
+   color: #fff !important;
+ }
+
  html, body {
    height: 100%;
    margin: 0;
@@ -92,6 +96,7 @@
 
 .fa-bar-chart {
   font-size: 10em;
+  color: #fff !important;
 }
 
 .fa-plus {
@@ -101,4 +106,19 @@
 .laundromats {
   background-color: #1D242A;
   padding: 2em;
+}
+
+.delete {
+  font-size: 2em;
+}
+
+.edit {
+  font-size: 2em;
+}
+.delete:hover {
+  color: rgba(144, 144, 144, 0.25);
+}
+
+.edit:hover {
+  color: rgba(144, 144, 144, 0.25);
 }
