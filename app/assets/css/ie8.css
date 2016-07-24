@@ -64,23 +64,23 @@
 
 /* Banner + Wrapper (style4) */
 
-	#banner,
+	#laundry,
 	.wrapper.style4 {
 		-ms-behavior: url("assets/js/ie/backgroundsize.min.htc");
 	}
 
-		#banner:before,
+		#laundry:before,
 		.wrapper.style4:before {
 			display: none;
 		}
 
 /* Banner */
 
-	#banner .more {
+	#laundry .more {
 		height: 4em;
 	}
 
-		#banner .more:after {
+		#laundry .more:after {
 			display: none;
 		}
 

@@ -20,7 +20,7 @@
 		var	$window = $(window),
 			$body = $('body'),
 			$wrapper = $('#page-wrapper'),
-			$banner = $('#banner'),
+			$laundry = $('#laundry'),
 			$header = $('#header');
 
 		// Disable animations/transitions until the page has loaded.
@@ -81,12 +81,12 @@
 			if (skel.vars.IEVersion < 9)
 				$header.removeClass('alt');
 
-			if ($banner.length > 0
+			if ($laundry.length > 0
 			&&	$header.hasClass('alt')) {
 
 				$window.on('resize', function() { $window.trigger('scroll'); });
 
-				$banner.scrollex({
+				$laundry.scrollex({
 					bottom:		$header.outerHeight() + 1,
 					terminate:	function() { $header.removeClass('alt'); },
 					enter:		function() { $header.addClass('alt'); },

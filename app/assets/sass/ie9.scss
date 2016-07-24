@@ -49,9 +49,9 @@
 
 /* Banner + Wrapper (style4) */
 
-	#banner,
+	#laundry,
 	.wrapper.style4 {
-		background-image: url("../../images/banner.jpg");
+		background-image: url("../../images/laundry.jpg");
 		background-position: center center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -76,7 +76,7 @@
 
 /* Banner */
 
-	#banner {
+	#laundry {
 		@include padding(14em, 0);
 		height: auto;
 
@@ -109,7 +109,7 @@
 
 	#main {
 		> header {
-			background-image: url("../../images/banner.jpg");
+			background-image: url("../../images/laundry.jpg");
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;
