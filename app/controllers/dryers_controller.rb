@@ -6,10 +6,10 @@ class DryersController < ApplicationController
 
     if @dryer.save
       flash[:notice] = 'Dryer data successfully added!'
-      redirect_to laundromat_path(@laundromat)
+      redirect_to laundromat_path(@laundromat) + "#main"
     else
       flash[:notice] = 'You must be signed in to add dryer data'
-      redirect_to laundromat_path(@laundromat)
+      redirect_to laundromat_path(@laundromat) + "#main"
     end
   end
 
@@ -18,7 +18,7 @@ class DryersController < ApplicationController
     @dryer = Dryer.new
     unless user_signed_in?
       flash[:notice] = 'You must be signed in to add dryer data'
-      redirect_to laundromat_path(@laundromat)
+      redirect_to laundromat_path(@laundromat) + "#main"
     end
   end
 
@@ -34,7 +34,7 @@ class DryersController < ApplicationController
     if @dryer.update(washer_params)
       flash[:notice] = 'Dryer successfully edited!'
     end
-    redirect_to laundromat_path(@laundromat)
+    redirect_to laundromat_path(@laundromat) + "#main"
   end
 
   def destroy
@@ -42,7 +42,7 @@ class DryersController < ApplicationController
     @laundromat = Laundromat.find(params[:laundromat_id])
     @dryer.destroy
     flash[:notice] = 'Dryer deleted!'
-    redirect_to laundromat_path(@laundromat)
+    redirect_to laundromat_path(@laundromat) + "#main"
   end
 
   private

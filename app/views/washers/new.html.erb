@@ -6,6 +6,6 @@
 <div class="row">
   <%= render "form" %>
 </div>
-<%= link_to 'Back to Laundromat', laundromat_path(@laundromat), class: "button", role: "button" %>
-<%= link_to 'Add Dryer Data', new_laundromat_dryer_path(@laundromat), class: "button", role: "button" %>
+<%= link_to 'Back to Laundromat', laundromat_path(@laundromat) + "#main", class: "button", role: "button" %>
+<%= link_to 'Add Dryer Data', new_laundromat_dryer_path(@laundromat) + "#main", class: "button", role: "button" %>
 </section>

@@ -2,10 +2,13 @@ class LaundromatsController < ApplicationController
 
   def index
     @laundromats = Laundromat.all
+
   end
 
   def show
     @laundromat = Laundromat.find(params[:id])
+    @washer = Washer.all.last
+    @dryer = Dryer.all.last
   end
 
   def new
@@ -40,11 +43,11 @@ class LaundromatsController < ApplicationController
     @laundromat.update(laundromat_params)
     if @laundromat.save
       flash[:notice] = "Laundromat successfully saved!"
-      redirect_to @laundromat
+      redirect_to "/laundromats/#{@laundromat}#main"
     else
       flash[:notice] = "There were problems saving your laundromat."
       flash[:errors] = @laundromat.errors.full_messages.join(", ")
-      render :edit
+      render :edit + "#main"
     end
   end
 
@@ -65,7 +68,7 @@ class LaundromatsController < ApplicationController
   private
 
   def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code)
+    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code, :washers, :dryers)
   end
 
 end

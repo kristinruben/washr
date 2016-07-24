@@ -1,5 +1,5 @@
 class AddForeignKeyDryers < ActiveRecord::Migration
   def change
-    add_column :dryers, :laundromat_id, :string
+    add_column :dryers, :laundromat_id, :integer
   end
 end

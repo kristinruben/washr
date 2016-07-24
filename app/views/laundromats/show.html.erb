@@ -1,24 +1,29 @@
 <div class="laundromats 6u -1u">
+  <div class="row">
+  <div class="delete 1u -9u">
+    <% if user_signed_in? %>
+    <%= link_to "", edit_laundromat_path(@laundromat), class: "icon fa-pencil" %>&nbsp;<%= link_to "", laundromat_path(@laundromat), class: "icon fa-close", method: :delete %>
+    <% end %>
+  </div>
+  </div>
+
   <h3><%= @laundromat.name %></h3>
   <h6><%= @laundromat.address %> <%= @laundromat.city %>, <%= @laundromat.state %></h6>
   <br />
-  <% if user_signed_in? %>
-    <%= link_to "Edit Laundromat", edit_laundromat_path(@laundromat) %>
-    <%= link_to "Delete Laundromat", laundromat_path(@laundromat), method: :delete %>
+  <% if @washer %>
+    <p>Most recent number of washers available: <%= @washer.number_available %></p>
   <% end %>
-    <% if @washers %>
-      <p>Most recent number of washers available: <%= @washer.number_available.last %></p>
-    <% end %>
-    <br />
-    <% if @dryers %>
-      <p>Most recent number of dryers available: <%= @dryer.number_available.last %></p>
-    <% end %>
-    <br />
+  <% if @dryer %>
+    <p>Most recent number of dryers available: <%= @dryer.number_available %></p>
+  <% end %>
+<br />
     <% if user_signed_in? %>
-      <%= link_to "Add Washer Data", new_laundromat_washer_path(@laundromat) %>
-      <%= link_to "Add Dryer Data", new_laundromat_dryer_path(@laundromat) %>
-    <% end %>
+      <%= link_to "Add Washer Data", new_laundromat_washer_path(@laundromat) + "#main" %>
+      <%= link_to "Add Dryer Data", new_laundromat_dryer_path(@laundromat) + "#main" %>
+    <% end %><br />
 </div>
+<div class="8u -1u">
 <br /><br />
 <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
-<%= link_to 'All Laundromats', laundromats_path(:anchor => "main"), class: "button", role: "button" %>
+<%= link_to 'All Laundromats', laundromats_path(:anchor => "main"), class: "button special", role: "button" %>
+</div>
