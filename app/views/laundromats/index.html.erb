@@ -22,10 +22,7 @@
       <% end %>
       <%= link_to "More", laundromat_path(laundromat) + "#main", class: "button" %>
       <br />
-      <% if user_signed_in? %>
-        <%= link_to "Edit", edit_laundromat_path(laundromat) + "#main" %>
       </div>
-      <% end %>
       <br /><br />
     <% end %>
     <div class="8u -1u">
