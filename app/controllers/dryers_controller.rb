@@ -3,11 +3,12 @@ class DryersController < ApplicationController
     @dryer = Dryer.new(dryer_params)
     @laundromat = Laundromat.find(params[:laundromat_id])
     @dryer.laundromat = @laundromat
-    @dryer.user = current_user
-    @dryer.sum_votes = 0
 
     if @dryer.save
-      flash[:notice] = 'Dryer successfully added!'
+      flash[:notice] = 'Dryer data successfully added!'
+      redirect_to laundromat_path(@laundromat)
+    else
+      flash[:notice] = 'You must be signed in to add dryer data'
       redirect_to laundromat_path(@laundromat)
     end
   end
@@ -16,7 +17,7 @@ class DryersController < ApplicationController
     @laundromat = Laundromat.find(params[:laundromat_id])
     @dryer = Dryer.new
     unless user_signed_in?
-      flash[:notice] = 'You must be signed in to add a new dryer'
+      flash[:notice] = 'You must be signed in to add dryer data'
       redirect_to laundromat_path(@laundromat)
     end
   end
@@ -30,7 +31,7 @@ class DryersController < ApplicationController
     @laundromat = Laundromat.find(params[:laundromat_id])
     @dryer = Dryer.find(params[:id])
     @dryer.laundromat = @laundromat
-    if @dryer.update(review_params)
+    if @dryer.update(washer_params)
       flash[:notice] = 'Dryer successfully edited!'
     end
     redirect_to laundromat_path(@laundromat)
@@ -46,9 +47,9 @@ class DryersController < ApplicationController
 
   private
 
-  def review_params
-    params.require(:review).permit(
-      :user_id, :laundromat_id, :description, :rating, :upvotes, :downvotes, :sum_votes
+  def dryer_params
+    params.require(:dryer).permit(
+      :number_available
     )
   end
 end
