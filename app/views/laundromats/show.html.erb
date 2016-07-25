@@ -21,11 +21,19 @@
 <canvas id="myChart" width="200" height="100"></canvas>
 <script>
 
+function dataset() {
+  $createdAt = $('data[0].created_at')
+  $dataArray = $.get('/api/v1/laundromats/',
+    function(data) {
+      debugger;
+    }
+  )
+}
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    labels: [$dataArray],
     datasets: [
       {
         label: "WASHERS",
@@ -46,7 +54,7 @@ var myChart = new Chart(ctx, {
         pointHoverBorderWidth: 2,
         pointRadius: 0,
         pointHitRadius: 10,
-        data: [12456, 16086, 21579, 17442, 13111, 15568, 24078, 13456, 19086, 20579, 15442, 14111, 25568, 12456, 16086, 21579, 17442, 13111, 15568, 24078, 13456, 19086, 20579, 15442, 14111, 25568],
+        data: [7, 8, 3, 4, 4, 3, 6]
       },
       {
         label: "DRYERS",
@@ -67,7 +75,7 @@ var myChart = new Chart(ctx, {
         pointHoverBorderWidth: 2,
         pointRadius: 0,
         pointHitRadius: 10,
-        data: [21456, 26086, 31879, 24842, 26711, 25968, 33078, 22496, 30086, 29579, 24442, 23111, 28568, 21456, 26086, 31879, 24842, 26711, 25968, 33078, 22496, 30086, 29579, 24442, 23111, 28568],
+        data: [6, 4, 5, 6, 4, 3, 7]
       }
     ]
   },
@@ -75,8 +83,9 @@ var myChart = new Chart(ctx, {
     scales: {
 
             xAxes: [{
+              type: 'time',
                 time: {
-                    unit: 'month'
+                    unit: 'day'
                 }
             }]
 
