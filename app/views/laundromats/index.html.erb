@@ -7,9 +7,9 @@
         <div class="row">
         <div class="1u -10u">
           <% if user_signed_in? %>
-            <%= link_to "", edit_laundromat_path(laundromat), class: "edit icon fa-pencil" %>&nbsp;<%= link_to "", laundromat_path(laundromat), class: "delete icon fa-close", method: :delete %>
+            <%= link_to "", edit_laundromat_path(laundromat) + "#main", class: "edit icon fa-pencil" %>&nbsp;<%= link_to "", laundromat_path(laundromat) + "#main", class: "delete icon fa-trash", method: :delete %>
           <% end %>
-          </div>
+        </div>
         </div>
       <h3><%= laundromat.name %></h3>
       <h5><%= laundromat.address %> <%= laundromat.city %>, <%= laundromat.state %></h5>

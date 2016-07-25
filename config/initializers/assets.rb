@@ -24,3 +24,4 @@ Rails.application.config.assets.version = '1.0'
 # Rails.application.config.assets.precompile += %w( c3.css )
 # Rails.application.config.assets.precompile += %w( c3.js )
 Rails.application.config.assets.precompile += %w( washer.svg )
+Rails.application.config.assets.precompile += %w( Chart.bundle.js )

@@ -1,8 +1,8 @@
-<div class="laundromats 6u -1u">
+<div class="laundromats 10u -1u">
   <div class="row">
-  <div class="delete 1u -9u">
+  <div class="1u -11u">
     <% if user_signed_in? %>
-    <%= link_to "", edit_laundromat_path(@laundromat), class: "icon fa-pencil" %>&nbsp;<%= link_to "", laundromat_path(@laundromat), class: "icon fa-close", method: :delete %>
+      <%= link_to "", edit_laundromat_path(@laundromat), class: "edit icon fa-pencil" %>&nbsp;<%= link_to "", laundromat_path(@laundromat), class: "delete icon fa-trash", method: :delete %>
     <% end %>
   </div>
   </div>
@@ -17,11 +17,80 @@
     <p>Most recent number of dryers available: <%= @dryer.number_available %></p>
   <% end %>
 <br />
-    <% if user_signed_in? %>
-      <%= link_to "Add Washer Data", new_laundromat_washer_path(@laundromat) + "#main" %>
-      <%= link_to "Add Dryer Data", new_laundromat_dryer_path(@laundromat) + "#main" %>
-    <% end %><br />
+
+<canvas id="myChart" width="200" height="100"></canvas>
+<script>
+
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    datasets: [
+      {
+        label: "WASHERS",
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: "#0192B4",
+        borderColor: "#0192B4",
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 0,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 0,
+        pointHitRadius: 10,
+        data: [12456, 16086, 21579, 17442, 13111, 15568, 24078, 13456, 19086, 20579, 15442, 14111, 25568, 12456, 16086, 21579, 17442, 13111, 15568, 24078, 13456, 19086, 20579, 15442, 14111, 25568],
+      },
+      {
+        label: "DRYERS",
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: "#C7CDCE",
+        borderColor: "#C7CDCE",
+        borderCapStyle: 'butt',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: "rgba(75,192,192,1)",
+        pointBackgroundColor: "#fff",
+        pointBorderWidth: 0,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: "rgba(75,192,192,1)",
+        pointHoverBorderColor: "rgba(220,220,220,1)",
+        pointHoverBorderWidth: 2,
+        pointRadius: 0,
+        pointHitRadius: 10,
+        data: [21456, 26086, 31879, 24842, 26711, 25968, 33078, 22496, 30086, 29579, 24442, 23111, 28568, 21456, 26086, 31879, 24842, 26711, 25968, 33078, 22496, 30086, 29579, 24442, 23111, 28568],
+      }
+    ]
+  },
+  options: {
+    scales: {
+
+            xAxes: [{
+                time: {
+                    unit: 'month'
+                }
+            }]
+
+    }
+  }
+});
+</script>
+<br />
+<% if user_signed_in? %>
+  <%= link_to "Add Washer Data", new_laundromat_washer_path(@laundromat) + "#main" %>
+  <%= link_to "Add Dryer Data", new_laundromat_dryer_path(@laundromat) + "#main" %>
+<% end %><br />
 </div>
+
 <div class="8u -1u">
 <br /><br />
 <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>

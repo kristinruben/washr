@@ -5,6 +5,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'https://use.fontawesome.com/92d99cf3de.js' %>
   <%= csrf_meta_tags %>
 </head>
 <body class="landing">
@@ -59,7 +61,7 @@
         </div>
       </section>
 
-  
+
 
       <!-- Header -->
       <br />
@@ -92,8 +94,7 @@
         <li>&copy; Washr</li>
       </ul>
     </footer>
-    <%= javascript_include_tag 'application' %>
-    <%= javascript_include_tag 'https://use.fontawesome.com/92d99cf3de.js' %>
     <%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAfjXa1ss9t4HUqrNEV_CqJFx-bglxrXpU&libraries=places&callback=initMap' %>
+
   </body>
-  </html>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "washr",
+  "version": "1.0.0",
+  "description": "![Build Status](https://codeship.com/projects/b1643890-27a1-0134-56f8-72a748d076f3/status?branch=master) ![Code Climate](https://codeclimate.com/github/kristinruben/washr.png) ![Coverage Status](https://coveralls.io/repos/kristinruben/washr/badge.png)",
+  "main": "index.js",
+  "dependencies": {
+    "chart.js": "^2.2.0-rc.2",
+    "moment": "^2.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristinruben/washr.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristinruben/washr/issues"
+  },
+  "homepage": "https://github.com/kristinruben/washr#readme"
+}

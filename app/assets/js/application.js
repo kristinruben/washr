@@ -18,4 +18,6 @@
 //= require util
 //= require main
 //= require map
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
