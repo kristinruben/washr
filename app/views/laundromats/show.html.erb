@@ -20,20 +20,36 @@
 
 <canvas id="myChart" width="200" height="100"></canvas>
 <script>
+  function laundry() {
+    $dryerData = [];
+    $washerData = [];
+    $labelsArray = [];
+    $laundromatId = $('#org-id')[0].innerHTML;
+    var $response = $.get('/api/laundromats/' + $laundromatId + ,
+      function(data) {
+        $.each(data, function(k,v) {
+          $labelsArray.push(v.created_at);
 
-function dataset() {
-  $createdAt = $('data[0].created_at')
-  $dataArray = $.get('/api/v1/laundromats/',
-    function(data) {
-      debugger;
-    }
-  )
-}
-var ctx = document.getElementById("myChart");
+          $.each(v.washers, function(l, w) {
+            $washerData.push(w.number_available);
+          });
+          $.each(v.dryers, function(x, y) {
+            $dryerData.push(y.number_available);
+          });
+        });
+
+        laundryData($labelsArray, $washerData, $dryerData);
+      }
+    )
+  };
+laundry();
+
+function laundryData(soap, washerData, dryerData) {
+  var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: [$dataArray],
+    labels: soap,
     datasets: [
       {
         label: "WASHERS",
@@ -54,7 +70,7 @@ var myChart = new Chart(ctx, {
         pointHoverBorderWidth: 2,
         pointRadius: 0,
         pointHitRadius: 10,
-        data: [7, 8, 3, 4, 4, 3, 6]
+        data: washerData
       },
       {
         label: "DRYERS",
@@ -75,7 +91,7 @@ var myChart = new Chart(ctx, {
         pointHoverBorderWidth: 2,
         pointRadius: 0,
         pointHitRadius: 10,
-        data: [6, 4, 5, 6, 4, 3, 7]
+        data: dryerData
       }
     ]
   },
@@ -92,6 +108,7 @@ var myChart = new Chart(ctx, {
     }
   }
 });
+};
 </script>
 <br />
 <% if user_signed_in? %>

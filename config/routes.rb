@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   resources :laundromats do
     resources :washers, only: [:new, :create, :edit, :update, :destroy]
     resources :dryers, only: [:new, :create, :edit, :update, :destroy]
+    resources :data, only: [:new, :create, :edit, :update, :destory]
   end
 
   namespace :api do
-    namespace :v1 do
-      resources :laundromats, only: [:index]
+    resources :laundromats, only: [:index] do
+      resources :washers, only: [:index]
+      resources :dryers, only: [:index]
     end
   end
 end
