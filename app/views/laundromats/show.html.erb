@@ -7,7 +7,7 @@
   </div>
   </div>
 
-  <h3><%= @laundromat.name %></h3>
+  <h3><%= @laundromat.name %></h3><div id="laundo-id" hidden><%= @laundromat.id %></div>
   <h6><%= @laundromat.address %> <%= @laundromat.city %>, <%= @laundromat.state %></h6>
   <br />
   <% if @washer %>
@@ -20,12 +20,36 @@
 
 <canvas id="myChart" width="200" height="100"></canvas>
 <script>
+  function laundry() {
+    $dryerData = [];
+    $washerData = [];
+    $labelsArray = [];
+    $laundromatId = document.getElementById('laundo-id').innerHTML;
+    var $response = $.get('/api/laundromats/' + $laundromatId + '/washers/',
+      function(data) {
+        $.each(data, function(k, v) {
+          $labelsArray.push(v.created_at);
+        });
+          $.each(data, function(k, v) {
+            $washerData.push(v.number_available);
+            });
+      });
+      var $secondResponse = $.get('/api/laundromats/' + $laundromatId + '/dryers/',
+    function(data) {
+      $.each(data, function(x, y) {
+        $dryerData.push(y.number_available);
+      });
+      laundryData($labelsArray, $washerData, $dryerData);
+    });
+    };
+laundry();
 
-var ctx = document.getElementById("myChart");
+function laundryData(soap, washerData, dryerData) {
+  var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+    labels: soap,
     datasets: [
       {
         label: "WASHERS",
@@ -46,7 +70,7 @@ var myChart = new Chart(ctx, {
         pointHoverBorderWidth: 2,
         pointRadius: 0,
         pointHitRadius: 10,
-        data: [12456, 16086, 21579, 17442, 13111, 15568, 24078, 13456, 19086, 20579, 15442, 14111, 25568, 12456, 16086, 21579, 17442, 13111, 15568, 24078, 13456, 19086, 20579, 15442, 14111, 25568],
+        data: washerData
       },
       {
         label: "DRYERS",
@@ -67,7 +91,7 @@ var myChart = new Chart(ctx, {
         pointHoverBorderWidth: 2,
         pointRadius: 0,
         pointHitRadius: 10,
-        data: [21456, 26086, 31879, 24842, 26711, 25968, 33078, 22496, 30086, 29579, 24442, 23111, 28568, 21456, 26086, 31879, 24842, 26711, 25968, 33078, 22496, 30086, 29579, 24442, 23111, 28568],
+        data: dryerData
       }
     ]
   },
@@ -75,14 +99,16 @@ var myChart = new Chart(ctx, {
     scales: {
 
             xAxes: [{
+              type: 'time',
                 time: {
-                    unit: 'month'
+                    unit: 'hour'
                 }
             }]
 
     }
   }
 });
+};
 </script>
 <br />
 <% if user_signed_in? %>
