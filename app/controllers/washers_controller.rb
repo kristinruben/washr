@@ -22,28 +22,6 @@ class WashersController < ApplicationController
     end
   end
 
-  def edit
-    @laundromat = Laundromat.find(params[:laundromat_id])
-    @washer = Washer.find(params[:id])
-  end
-
-  def update
-    @laundromat = Laundromat.find(params[:laundromat_id])
-    @washer = Washer.find(params[:id])
-    @washer.laundromat = @laundromat
-    if @washer.update(washer_params)
-      flash[:notice] = 'Washer successfully edited!'
-    end
-    redirect_to laundromat_path(@laundromat) + "#main"
-  end
-
-  def destroy
-    @washer = Washer.find(params[:id])
-    @laundromat = Laundromat.find(params[:laundromat_id])
-    @washer.destroy
-    flash[:notice] = 'Washer deleted!'
-    redirect_to laundromat_path(@laundromat) + "#main"
-  end
 
   private
 

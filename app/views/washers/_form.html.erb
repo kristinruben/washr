@@ -2,7 +2,7 @@
   <%= form_for [@laundromat, @washer] do |f| %>
     <div class="row number">
       <%= f.label :number_available, 'Number of Washers Currently Available' %>
-      <%= f.select :number_available, options_for_select([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),:name=>"number_available",:id=>"number_available" %>
+      <%= f.select :number_available, options_for_select([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]),:name=>"Number",:id=>"Number" %>
     </div>
     <br /><br /><br />
     <div class="row">

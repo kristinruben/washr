@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'user sees laundromats' do
+feature 'user sees washers' do
   scenario 'see all the laundromats' do
     laundromat = FactoryGirl.create(:laundromat, name: 'ZZZZ')
     another_laundromat = FactoryGirl.create(:laundromat, name: 'AAAA')
