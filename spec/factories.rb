@@ -12,4 +12,9 @@ FactoryGirl.define do
     state 'MA'
     zip_code '02138'
   end
+
+  factory :washer do
+    sequence (:number_available) { rand(0..15) }
+    laundromat
+  end
 end

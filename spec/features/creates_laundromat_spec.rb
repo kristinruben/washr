@@ -3,17 +3,17 @@ require 'rails_helper'
 feature 'user creates laundromat' do
   let(:laundromat) { FactoryGirl.attributes_for(:laundromat) }
 
-  # context 'inauthenticated user' do
-  #   scenario 'unauthorized user visits new laundromat form' do
-  #     visit laundromats_path
-  #
-  #     click_button 'Add New Laundromat'
-  #
-  #     expect(page).to have_content('You must be signed in to add a new laundromat')
-  #
-  #     expect(page).not_to have_selector('form')
-  #   end
-  # end
+  context 'inauthenticated user' do
+    scenario 'unauthorized user visits new laundromat form' do
+      visit laundromats_path
+
+      click_link 'Add New Laundromat'
+
+      expect(page).to have_content('You must be signed in to add a new laundromat')
+
+      expect(page).not_to have_selector('form')
+    end
+  end
 
   context 'authenticated user' do
     before do
@@ -64,7 +64,7 @@ feature 'user creates laundromat' do
 
     scenario 'submits a blank form' do
       click_link 'Add New Laundromat'
-  
+
       click_button 'Add Laundromat'
 
       expect(page).not_to have_content('Laundromat successfully added!')

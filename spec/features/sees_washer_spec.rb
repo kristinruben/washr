@@ -1,24 +1,27 @@
 require 'rails_helper'
 
-feature 'user sees laundromats' do
-  scenario 'see all the laundromats' do
-    laundromat = FactoryGirl.create(:laundromat, name: 'ZZZZ')
-    another_laundromat = FactoryGirl.create(:laundromat, name: 'AAAA')
-    FactoryGirl.create(:laundromat, name: 'DDDD')
+feature 'user creates laundromat' do
+  let(:laundromat) { FactoryGirl.create(:laundromat) }
+  let(:washer) { FactoryGirl.create(:washer) }
 
-    visit laundromats_path
+  context 'authenticated user' do
+    before do
+      sign_in
+    end
 
-    expect(page).to have_content('Laundromats')
-    expect(page).to have_content(laundromat.name)
-    expect(page).to have_selector('.laundromats', count: 3)
+  scenario 'sees washers on a given show page' do
+    visit "/laundromats/#{laundromat.id}/washers/new"
 
-    expect(page).to have_content(laundromat.name)
-    expect(page).to have_content(another_laundromat.name)
+    expect(page).to have_content('Add New Washer Data')
+    expect(page).to have_content('Number of Washers Currently Available')
+    expect(page).to have_button('Create Washer')
+
   end
-
-  scenario 'user sees no laundromats' do
-    visit laundromats_path
-
-    expect(page).not_to have_selector('.laundromats')
-  end
+  #
+  # scenario 'user sees no washers' do
+  #   visit new_laundromat_washer
+  #
+  #   expect(page).not_to have_content(washer)
+  # end
+end
 end
