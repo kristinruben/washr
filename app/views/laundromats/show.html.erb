@@ -42,7 +42,8 @@
       laundryData($labelsArray, $washerData, $dryerData);
     });
     };
-laundry();
+setTimeout(laundry, 1000);
+
 
 function laundryData(soap, washerData, dryerData) {
   var ctx = document.getElementById("myChart");
@@ -122,3 +123,7 @@ var myChart = new Chart(ctx, {
 <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
 <%= link_to 'All Laundromats', laundromats_path(:anchor => "main"), class: "button special", role: "button" %>
 </div>
+
+<%= javascript_tag do %>
+  laundry();
+<% end %>
