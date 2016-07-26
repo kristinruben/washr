@@ -7,7 +7,7 @@
   </div>
   </div>
 
-  <h3><%= @laundromat.name %></h3>
+  <h3><%= @laundromat.name %></h3><div id="laundo-id" hidden><%= @laundromat.id %></div>
   <h6><%= @laundromat.address %> <%= @laundromat.city %>, <%= @laundromat.state %></h6>
   <br />
   <% if @washer %>
@@ -24,24 +24,24 @@
     $dryerData = [];
     $washerData = [];
     $labelsArray = [];
-    $laundromatId = $('#org-id')[0].innerHTML;
-    var $response = $.get('/api/laundromats/' + $laundromatId + ,
+    $laundromatId = document.getElementById('laundo-id').innerHTML;
+    var $response = $.get('/api/laundromats/' + $laundromatId + '/washers/',
       function(data) {
-        $.each(data, function(k,v) {
+        $.each(data, function(k, v) {
           $labelsArray.push(v.created_at);
-
-          $.each(v.washers, function(l, w) {
-            $washerData.push(w.number_available);
-          });
-          $.each(v.dryers, function(x, y) {
-            $dryerData.push(y.number_available);
-          });
         });
-
-        laundryData($labelsArray, $washerData, $dryerData);
-      }
-    )
-  };
+          $.each(data, function(k, v) {
+            $washerData.push(v.number_available);
+            });
+      });
+      var $secondResponse = $.get('/api/laundromats/' + $laundromatId + '/dryers/',
+    function(data) {
+      $.each(data, function(x, y) {
+        $dryerData.push(y.number_available);
+      });
+      laundryData($labelsArray, $washerData, $dryerData);
+    });
+    };
 laundry();
 
 function laundryData(soap, washerData, dryerData) {
@@ -101,7 +101,7 @@ var myChart = new Chart(ctx, {
             xAxes: [{
               type: 'time',
                 time: {
-                    unit: 'day'
+                    unit: 'hour'
                 }
             }]
 
