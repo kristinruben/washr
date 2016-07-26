@@ -10,18 +10,15 @@ feature 'user sees laundromats' do
 
     expect(page).to have_content('Laundromats')
     expect(page).to have_content(laundromat.name)
-    expect(page).to have_selector('.laundromat', count: 3)
-
-    expect(page).to have_link(laundromat.name)
+    expect(page).to have_selector('.laundromats', count: 3)
 
     expect(page).to have_content(laundromat.name)
     expect(page).to have_content(another_laundromat.name)
-    expect(find('.laundromat:first-of-type').text).to include(another_laundromat.name)
   end
 
   scenario 'user sees no laundromats' do
     visit laundromats_path
 
-    expect(page).not_to have_selector('.laundromat')
+    expect(page).not_to have_selector('.laundromats')
   end
 end

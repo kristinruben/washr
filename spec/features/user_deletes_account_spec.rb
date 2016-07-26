@@ -8,7 +8,7 @@ feature 'user edits account information' do
   before do
     visit laundromats_path
     click_link 'Sign In'
-    fill_in 'Login', with: user[:email]
+    fill_in 'Email', with: user[:email]
     fill_in 'Password', with: 'password'
     click_button 'Log in'
     click_link 'Edit Account'

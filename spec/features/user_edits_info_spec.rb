@@ -8,7 +8,7 @@ feature 'user edits account information' do
   before do
     visit laundromats_path
     click_link 'Sign In'
-    fill_in 'Login', with: user[:email]
+    fill_in 'Email', with: user[:email]
     fill_in 'Password', with: 'password'
     click_button 'Log in'
     click_link 'Edit Account'
@@ -19,7 +19,6 @@ feature 'user edits account information' do
 
     expect(page).to have_selector('form')
 
-    expect(page).to have_content('Username')
     expect(page).to have_content('Email')
     expect(page).to have_content('Password')
     expect(page).to have_content('Password confirmation')
@@ -27,7 +26,6 @@ feature 'user edits account information' do
   end
 
   scenario 'user inputs valid fields' do
-    fill_in 'Username', with: another_user[:username]
     fill_in 'Email', with: another_user[:email]
     fill_in 'Current password', with: 'password'
     fill_in 'Password', with: another_user[:password]
@@ -38,7 +36,6 @@ feature 'user edits account information' do
   end
 
   scenario 'user leaves out required fields' do
-    fill_in 'Username', with: ''
     fill_in 'Email', with: ''
     fill_in 'Password', with: ''
     fill_in 'Password confirmation', with: ''

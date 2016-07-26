@@ -40,7 +40,7 @@ feature 'user creates account' do
     fill_in 'Password', with: another_user[:password]
     click_button 'Log in'
 
-    expect(page).to have_content('Invalid email or password')
+    expect(page).to have_content('Invalid Email or password')
   end
 
   scenario 'user leaves out required fields' do
@@ -50,6 +50,6 @@ feature 'user creates account' do
     fill_in 'Password', with: ''
     click_button 'Log in'
 
-    expect(page).to have_content('Invalid Login or password')
+    expect(page).to have_content('Invalid Email or password')
   end
 end

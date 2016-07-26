@@ -16,15 +16,9 @@ describe Laundromat do
   it { should have_valid(:zip_code).when('02138') }
   it { should_not have_valid(:zip_code).when(nil, '') }
 
-  it { should have_valid(:washers_available).when('2') }
-  it { should_not have_valid(:washers_available).when(nil, '') }
-
-  it { should have_valid(:dryers_available).when('2') }
-  it { should_not have_valid(:dryers_available).when(nil, '') }
-
-  it { should have_valid(:total_washers).when('2') }
-  it { should_not have_valid(:total_washers).when(nil, '') }
-
-  it { should have_valid(:total_dryers).when('2') }
-  it { should_not have_valid(:total_dryers).when(nil, '') }
+  # it { should have_valid(:washers).when(2) }
+  # it { should_not have_valid(:washers).when(nil, '') }
+  #
+  # it { should have_valid(:dryers).when(2) }
+  # it { should_not have_valid(:dryers).when(nil, '') }
 end

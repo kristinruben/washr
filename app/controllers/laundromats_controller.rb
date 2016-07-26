@@ -24,7 +24,7 @@ class LaundromatsController < ApplicationController
     @laundromat = Laundromat.new(laundromat_params)
     if @laundromat.save
       flash[:notice] = "Laundromat successfully added!"
-      redirect_to @laundromat
+      redirect_to "/laundromats/#{@laundromat.id}/#main"
     else
       flash[:notice] = "There were problems saving your laundromat."
       flash[:errors] = @laundromat.errors.full_messages.join(", ")
@@ -42,11 +42,11 @@ class LaundromatsController < ApplicationController
     @laundromat.update(laundromat_params)
     if @laundromat.save
       flash[:notice] = "Laundromat successfully saved!"
-      redirect_to "/laundromats/#{@laundromat}#main"
+      redirect_to "/laundromats/#{@laundromat.id}/#main"
     else
       flash[:notice] = "There were problems saving your laundromat."
       flash[:errors] = @laundromat.errors.full_messages.join(", ")
-      render :edit + "#main"
+      render :edit
     end
   end
 

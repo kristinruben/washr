@@ -7,7 +7,7 @@ feature 'user creates account' do
   scenario 'user signs out' do
     visit laundromats_path
     click_link 'Sign In'
-    fill_in 'Login', with: user[:email]
+    fill_in 'Email', with: user[:email]
     fill_in 'Password', with: 'password'
     click_button 'Log in'
 

@@ -8,7 +8,7 @@ feature 'user deletes laundromat' do
     sign_in
 
     visit laundromat_path(laundromat)
-    click_link('Delete Laundromat')
+    page.find('.delete').click
 
     expect(Laundromat.all.count).to eq(1)
 
@@ -20,6 +20,6 @@ feature 'user deletes laundromat' do
   scenario 'inauthenticated user cannot delete laundromat' do
     visit laundromat_path(laundromat)
 
-    expect(page).not_to have_link('Delete Laundromat')
+    expect(page).not_to have_selector('delete')
   end
 end

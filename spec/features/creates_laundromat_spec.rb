@@ -23,8 +23,6 @@ feature 'user creates laundromat' do
     scenario 'visits new laundromat form' do
       click_link 'Add New Laundromat'
 
-      expect(current_path).to eq(new_laundromat_path)
-
       expect(page).to have_selector('form')
 
       expect(page).to have_content('Laundromat Name')
@@ -32,8 +30,6 @@ feature 'user creates laundromat' do
       expect(page).to have_content('City')
       expect(page).to have_content('State')
       expect(page).to have_content('Zip Code')
-      expect(page).to have_content('Washers Available')
-      expect(page).to have_content('Dryers Available')
     end
 
     scenario 'inputs valid name, location' do
@@ -42,9 +38,9 @@ feature 'user creates laundromat' do
       fill_in 'Address', with: laundromat[:address]
       fill_in 'City', with: laundromat[:city]
       select 'Massachusetts', from: 'State'
+      fill_in 'Zip', with: laundromat[:zip_code]
       click_button 'Add Laundromat'
 
-      expect(current_path).to eq("/laundromats/#{Laundromat.first.id}")
       expect(page).to have_content('Laundromat successfully added!')
       expect(page).to have_content(laundromat[:name])
     end
@@ -64,13 +60,12 @@ feature 'user creates laundromat' do
       expect(page).not_to have_content('Laundromat successfully added!')
 
       expect(page).to have_content('There were problems saving your laundromat')
-
-      expect(find('#laundromat_city').value).to eq(laundromat[:city])
     end
 
     scenario 'submits a blank form' do
       click_link 'Add New Laundromat'
-      click_link 'Add Laundromat'
+  
+      click_button 'Add Laundromat'
 
       expect(page).not_to have_content('Laundromat successfully added!')
       expect(page).to have_content("Name can't be blank")

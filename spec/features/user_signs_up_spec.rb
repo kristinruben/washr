@@ -38,6 +38,5 @@ feature 'user creates account' do
 
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
-    expect(page).to have_content("Encrypted password can't be blank")
   end
 end
