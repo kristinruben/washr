@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe LaundromatsController, type: :controller do
+RSpec.describe WashersController, type: :controller do
   let!(:user) { FactoryGirl.create(:user) }
 
   before do
