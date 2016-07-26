@@ -17,4 +17,9 @@ FactoryGirl.define do
     sequence (:number_available) { rand(0..15) }
     laundromat
   end
+
+  factory :dryer do
+    sequence (:number_available) { rand(0..15) }
+    laundromat
+  end
 end
