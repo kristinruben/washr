@@ -9,22 +9,30 @@ feature 'user creates washer' do
       sign_in
     end
 
-  scenario 'visits new washer form' do
-    visit "/laundromats/#{laundromat.id}/washers/new"
+    scenario 'visits new washer form' do
+      visit "/laundromats/#{laundromat.id}/washers/new"
 
-    expect(page).to have_selector('form')
+      expect(page).to have_selector('form')
 
-    expect(page).to have_content('Number of Washers Currently Available')
+      expect(page).to have_content('Number of Washers Currently Available')
 
+    end
+
+    scenario 'inputs valid number' do
+      visit "/laundromats/#{laundromat.id}/washers/new"
+      select washer[:number_available]
+      click_button 'Create Washer'
+
+      expect(page).to have_content('Washer data successfully added!')
+    end
   end
 
-  scenario 'inputs valid number' do
-    visit "/laundromats/#{laundromat.id}/washers/new"
-    select washer[:number_available]
-    click_button 'Create Washer'
+  context 'inauthenticated user' do
 
-    expect(page).to have_content('Washer data successfully added!')
+    scenario 'user visits new washer form' do
+      visit "/laundromats/#{laundromat.id}/washers/new"
+      expect(page).to have_content('You must be signed in to add washer data')
+
+    end
   end
-
-end
 end
