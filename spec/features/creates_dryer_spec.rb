@@ -31,7 +31,7 @@ feature 'user creates dryer' do
 
     scenario 'user visits new dryer form' do
       visit "/laundromats/#{laundromat.id}/dryers/new"
-      expect(page).to have_content('You must be signed in to add washer data')
+      expect(page).to have_content('You must be signed in to add dryer data')
 
     end
   end
