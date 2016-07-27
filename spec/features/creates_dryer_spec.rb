@@ -9,22 +9,30 @@ feature 'user creates dryer' do
       sign_in
     end
 
-  scenario 'visits new dryer form' do
-    visit "/laundromats/#{laundromat.id}/dryers/new"
+    scenario 'visits new dryer form' do
+      visit "/laundromats/#{laundromat.id}/dryers/new"
 
-    expect(page).to have_selector('form')
+      expect(page).to have_selector('form')
 
-    expect(page).to have_content('Number of Dryers Currently Available')
+      expect(page).to have_content('Number of Dryers Currently Available')
 
+    end
+
+    scenario 'inputs valid number' do
+      visit "/laundromats/#{laundromat.id}/dryers/new"
+      select dryer[:number_available]
+      click_button 'Create Dryer'
+
+      expect(page).to have_content('Dryer data successfully added!')
+    end
   end
 
-  scenario 'inputs valid number' do
-    visit "/laundromats/#{laundromat.id}/dryers/new"
-    select dryer[:number_available]
-    click_button 'Create Dryer'
+  context 'inauthenticated user' do
 
-    expect(page).to have_content('Dryer data successfully added!')
+    scenario 'user visits new dryer form' do
+      visit "/laundromats/#{laundromat.id}/dryers/new"
+      expect(page).to have_content('You must be signed in to add washer data')
+
+    end
   end
-
-end
 end
