@@ -1,5 +1,11 @@
-<!-- Content -->
 <section id="content" class="wrapper">
+  <h1>Find Your Laundromat</h1>
+  <br /><br />
+<input id="pac-input" class="controls" type="text" placeholder="Enter a location">
+    <div id="map" class="map"></div>
+    <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button special", role: "button" %>
+<br />
+<br /><br />
   <h1>Laundromats</h1>
   <br /><br />
     <% @laundromats.each do |laundromat| %>
@@ -26,8 +32,9 @@
       <br /><br />
     <% end %>
     <div class="8u -1u">
-    <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button special", role: "button" %>
+    <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button special trigger", role: "button" %>
   </div>
     <br />
   <br />
 </section>
+<%= javascript_include_tag 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBA7bgxs6YiFP-B9JCWroTXZT7I0U6gkjg&libraries=places&callback=initMap' %>
