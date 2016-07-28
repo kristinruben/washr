@@ -9,7 +9,7 @@
   <h1>Laundromats</h1>
   <br /><br />
     <% @laundromats.each do |laundromat| %>
-      <div class="laundromats 6u -1u">
+      <div class="laundromats 6u -1u 12u(small) 12u(xsmall) 12u(xxsmall)">
         <div class="row">
         <div class="1u -10u">
           <% if user_signed_in? %>
@@ -31,7 +31,7 @@
       </div>
       <br /><br />
     <% end %>
-    <div class="8u -1u">
+    <div class="8u -1u 12u(small) 12u(xsmall) 12u(xxsmall)">
     <%= link_to 'Add New Laundromat', new_laundromat_path, class: "button special trigger", role: "button" %>
   </div>
     <br />

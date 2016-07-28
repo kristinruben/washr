@@ -1,4 +1,4 @@
-<div class="laundromats 10u -1u">
+<div class="laundromats 10u -1u 12u(small) 12u(xsmall) 12u(xxsmall)">
   <div class="row">
   <div class="1u -11u">
     <% if user_signed_in? %>
@@ -116,7 +116,7 @@ var myChart = new Chart(ctx, {
 <% end %><br />
 </div>
 
-<div class="8u -1u">
+<div class="8u -1u 12u(small) 12u(xsmall) 12u(xxsmall)">
 <br /><br />
 <%= link_to 'Add New Laundromat', new_laundromat_path(:anchor => "main"), class: "button", role: "button" %>
 <%= link_to 'All Laundromats', laundromats_path(:anchor => "main"), class: "button special", role: "button" %>
