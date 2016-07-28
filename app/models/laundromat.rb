@@ -5,7 +5,6 @@ class Laundromat < ActiveRecord::Base
   validates :state, presence: true
   validates :zip_code, presence: true
 
-  has_many :washers
-  has_many :dryers
-  belongs_to :user
+  has_many :washers, :dependent => :delete_all
+  has_many :dryers, :dependent => :delete_all
 end
