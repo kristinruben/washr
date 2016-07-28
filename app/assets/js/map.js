@@ -1,6 +1,6 @@
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    center: {lat: -33.8688, lng: 151.2195},
+    center: {lat: 42.3601, lng: -71.0589},
     zoom: 13
   });
   var input = /** @type {!HTMLInputElement} */(
@@ -19,10 +19,11 @@ function initMap() {
     anchorPoint: new google.maps.Point(0, -29)
   });
 
+
   autocomplete.addListener('place_changed', function() {
     infowindow.close();
     marker.setVisible(false);
-    var place = autocomplete.getPlace();
+    place = autocomplete.getPlace();
     if (!place.geometry) {
       window.alert("Autocomplete's returned place contains no geometry");
       return;
@@ -57,6 +58,27 @@ function initMap() {
     infowindow.setContent('<div><strong>' + place.name + '</strong><br>' + address);
     infowindow.open(map, marker);
   });
-
-
 }
+
+$(function () {
+$('.trigger').click(function (event) {
+  event.preventDefault();
+    $.ajax({
+      url: '/api/laundromats',
+      method: 'POST',
+      data: { laundromat: {
+        name: place.name,
+        address: place.address_components[0].short_name + " " + place.address_components[1].short_name,
+        city: place.address_components[3].short_name,
+        state: place.address_components[5].long_name,
+        zip_code: place.address_components[7].short_name
+      }}
+    }).done(function(data) {
+    })
+    .fail(function(response) {
+      data = response.responseJSON;
+    });
+    console.log('Success');
+    location.reload();
+});
+});

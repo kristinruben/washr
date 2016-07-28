@@ -33,10 +33,9 @@
    margin: 0;
    padding: 0;
  }
- #map {
-   height: 32em;
-   width: 40em;
-   border-radius: 20px;
+ .map {
+   height: 20em !important;
+   width: 100% !important;
  }
  .controls {
    margin-top: 10px;
@@ -51,7 +50,6 @@
 
  #pac-input {
    background-color: #fff;
-   font-family: Source Sans Pro;
    font-size: 15px;
    font-weight: 300;
    margin-left: 12px;
@@ -64,9 +62,7 @@
    border-color: #4d90fe;
  }
 
- .pac-container {
-   font-family: Source Sans Pro;
- }
+
 
  #type-selector {
    color: #fff;
@@ -75,7 +71,6 @@
  }
 
  #type-selector label {
-   font-family: Source Sans Pro;
    font-size: 13px;
    font-weight: 300;
  }

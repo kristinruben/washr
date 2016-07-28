@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    resources :laundromats, only: [:index] do
+    resources :laundromats, only: [:index, :new, :create, :update, :edit] do
       resources :washers, only: [:index]
       resources :dryers, only: [:index]
     end
