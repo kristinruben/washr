@@ -51,7 +51,7 @@ class LaundromatsController < ApplicationController
   end
 
   def destroy
-    Laundromat.destroy(laundromat_params)
+    Laundromat.destroy(params[:id])
     if !@laundromat
       flash[:notice] = "Laundromat deleted"
       redirect_to laundromats_path(:anchor => "main")

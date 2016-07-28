@@ -3,7 +3,7 @@
   <br /><br />
 <input id="pac-input" class="controls" type="text" placeholder="Enter a location">
     <div id="map" class="map"></div>
-<button class="button special trigger">Add New Laundromat</button>
+<button class="button special trigger">Add Laundromat</button>
 <br />
 <br /><br />
   <h1>Laundromats</h1>
@@ -32,7 +32,7 @@
       <br /><br />
     <% end %>
     <div class="8u -1u">
-    <%= link_to 'Add New Laundromat', class: "button special trigger", role: "button" %>
+    <%= link_to 'Add New Laundromat', new_laundromat_path, class: "button special trigger", role: "button" %>
   </div>
     <br />
   <br />
