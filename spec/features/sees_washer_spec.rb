@@ -9,19 +9,19 @@ feature 'user creates laundromat' do
       sign_in
     end
 
-  scenario 'sees washers on a given show page' do
-    visit "/laundromats/#{laundromat.id}/washers/new"
+    scenario 'sees washers on a given show page' do
+      visit "/laundromats/#{laundromat.id}/washers/new"
 
-    expect(page).to have_content('Add New Washer Data')
-    expect(page).to have_content('Number of Washers Currently Available')
-    expect(page).to have_button('Create Washer')
+      expect(page).to have_content('Add New Washer Data')
+      expect(page).to have_content('Number of Washers Currently Available')
+      expect(page).to have_button('Create Washer')
 
+    end
+
+    scenario 'user sees no washers' do
+      visit new_laundromat_washer_path(laundromat.id)
+
+      expect(page).not_to have_content(washer)
+    end
   end
-
-  scenario 'user sees no washers' do
-    visit new_laundromat_washer_path(laundromat.id)
-
-    expect(page).not_to have_content(washer)
-  end
-end
 end
