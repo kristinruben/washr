@@ -32,7 +32,7 @@ feature 'user creates washer' do
     scenario 'user visits new washer form' do
       visit "/laundromats/#{laundromat.id}/washers/new"
       expect(page).to have_content('You must be signed in to add washer data')
-
+    
     end
   end
 end
