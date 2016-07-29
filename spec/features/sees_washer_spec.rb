@@ -17,11 +17,11 @@ feature 'user creates laundromat' do
     expect(page).to have_button('Create Washer')
 
   end
-  #
-  # scenario 'user sees no washers' do
-  #   visit new_laundromat_washer
-  #
-  #   expect(page).not_to have_content(washer)
-  # end
+
+  scenario 'user sees no washers' do
+    visit new_laundromat_washer_path(laundromat.id)
+
+    expect(page).not_to have_content(washer)
+  end
 end
 end

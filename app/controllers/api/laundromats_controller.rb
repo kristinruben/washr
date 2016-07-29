@@ -16,6 +16,6 @@ class Api::LaundromatsController < ApplicationController
   private
 
   def laundromat_params
-    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code)
+    params.require(:laundromat).permit(:name, :address, :city, :state, :zip_code, :washers, :dryers)
   end
 end

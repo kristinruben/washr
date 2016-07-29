@@ -90,7 +90,6 @@
         null,
         1,
         1,
-        1,
         null
       ],
       "/Users/kristinruben/Dropbox/washr/app/models/washer.rb": [
@@ -104,7 +103,7 @@
         1,
         null,
         1,
-        57,
+        61,
         null,
         null,
         1,
@@ -183,15 +182,15 @@
         1,
         null,
         1,
-        62,
+        66,
         null,
         null,
         null,
         null,
         null,
-        62,
-        62,
-        62,
+        66,
+        66,
+        66,
         null,
         null
       ],
@@ -212,9 +211,9 @@
         null,
         null,
         1,
-        4,
-        4,
-        4,
+        6,
+        6,
+        6,
         1,
         1,
         null,
@@ -307,6 +306,6 @@
         0
       ]
     },
-    "timestamp": 1469728369
+    "timestamp": 1469754840
   }
 }
