@@ -1,2 +1,2 @@
 exclude_paths:
-- "app/css/main.css"
+- "app/assets/css/main.css"
